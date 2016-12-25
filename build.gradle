@@ -2,6 +2,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
 
+
 sourceSets.main.java.srcDirs = ['src']
 mainClassName = 'com.jfsaaved.main.Main'
 
