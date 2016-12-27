@@ -1,35 +1,23 @@
+group 'com.jfsaaved'
+version '1.0'
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
 
-
 sourceSets.main.java.srcDirs = ['src']
-mainClassName = 'com.jfsaaved.main.Main'
+mainClassName = "com.jfsaaved.main.Main"
 
-// tag::repositories[]
+sourceCompatibility = 1.8
+
 repositories {
     mavenCentral()
 }
-// end::repositories[]
-
-// tag::jar[]
-jar {
-    baseName = 'gs-gradle'
-    version =  '0.1.0'
-}
-// end::jar[]
-
-// tag::dependencies[]
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 
 dependencies {
-	compile 'org.springframework:spring-context:4.3.4.RELEASE'
-    compile "joda-time:joda-time:2.2"
-    testCompile "junit:junit:4.12"
+    compile "org.springframework:spring-webmvc:4.+"
+    compile "org.springframework:spring-aop:4.+"
+    compile "org.springframework.boot:spring-boot-starter-web:1.+"
+    compile "org.aspectj:aspectjrt:1.+"
+    compile "org.slf4j:slf4j-api:1.+"
 }
-// end::dependencies[]
-
-// tag::wrapper[]
-// end::wrapper[]
