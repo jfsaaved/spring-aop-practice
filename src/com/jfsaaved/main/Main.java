@@ -7,9 +7,11 @@ import com.jfsaaved.service.ShapeService;
 
 public class Main {
 	
+	private static ApplicationContext context;
+
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		context = new ClassPathXmlApplicationContext("spring.xml");
 		ShapeService shapeService = context.getBean("shapeService", ShapeService.class);
 		System.out.println(shapeService.getCircle().getName());
 	}
