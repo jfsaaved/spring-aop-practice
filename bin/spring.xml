@@ -10,9 +10,9 @@
 	<context:annotation-config/>
 	<context:component-scan base-package="com.jfsaaved"></context:component-scan>
 
-	<aop:aspectj-autoproxy/>    	
 
-
+	<aop:aspectj-autoproxy/>
+	
 	<bean name="triangle" class="com.jfsaaved.model.Triangle">
 		<property name="name" value="Triangle Name"/>
 	</bean>

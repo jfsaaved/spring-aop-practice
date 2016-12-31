@@ -26,6 +26,7 @@ dependencies {
     compile "org.slf4j:slf4j-api:1.+"
     compile "org.springframework:spring-aop:4.+"
     compile "org.aspectj:aspectjrt:1.+"
+    compile "org.aspectj:aspectjtools:1.+"
     compile "org.aspectj:aspectjweaver:1.+"
    
 }
