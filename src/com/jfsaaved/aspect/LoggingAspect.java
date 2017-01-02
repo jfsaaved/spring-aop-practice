@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggingAspect {
 	
-	@Before("execution(public String getName())")
+	@Before("execution(public String com.jfsaaved.model.Circle.getName())")
 	public void loggingAdvice() {
 		System.out.println("Advice run. Get method called.");
 	}
