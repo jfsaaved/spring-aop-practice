@@ -44,6 +44,34 @@ public class LoggingAspect {
 	
 	@Pointcut("execution(public * get*())")
 	public void allGetters() {}
+	
+	// @Pointcut("execution(* * com.jfsaaved.model.Circle.*(..)")
+	/*
+	 * Within Pointcuts
+	 * within(com.jfsaaved.model.Circle)
+	 * within(com.jfsaaved.model..*) - Affect subpackages as well
+	 */
+	@Pointcut("within(com.jfsaaved.model.Circle)")
+	public void allCircleMethods() {}
+	
+	
+	@Before("allCircleMethods()")
+	public void allCircleMethodsAdvice() {
+		System.out.println("All within methods called.");
+	}
+	
+	/*
+	 * args() Point cut methods
+	 * Take class names as parameters
+	 * @Pointcut(args())
+	 * public void argsMethods() {}
+	 * 
+	 * 
+	 * It is best practice to mix and match point cut expressions / combine them rather
+	 * ex: I want a point cut for all getters of Circle class
+	 * allGetters() && allCircleMethods() inside @Before for example
+	 */
+	
 
 
 }
