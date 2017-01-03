@@ -1,11 +1,14 @@
 package com.jfsaaved.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
+
+import com.jfsaaved.model.Circle;
 
 
 @Aspect
@@ -71,6 +74,28 @@ public class LoggingAspect {
 	 * ex: I want a point cut for all getters of Circle class
 	 * allGetters() && allCircleMethods() inside @Before for example
 	 */
+	
+	/*
+	 * JoinPoints
+	 * System.out.println(joinPoint.toString());
+	 * joinPoint.getTarget() - Gives us the object, who's method were called
+	 * Circle circle = (Circle) joinPoint.getTarget();
+	 */
+	
+	@Before("allCircleMethods()")
+	public void joinPointaAdvice(JoinPoint joinPoint) {
+
+	}
+	
+	@Before("args(String)")
+	public void stringArgumentMethods(){
+		System.out.println("A method that takes String arguments has been called - NaN");
+	}
+	
+	@Before("args(name)")
+	public void stringArgumentMethods(String name){
+		System.out.println("A method that takes String arguments has been called: "+name);
+	}
 	
 
 
