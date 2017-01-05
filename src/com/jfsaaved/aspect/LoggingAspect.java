@@ -1,7 +1,10 @@
 package com.jfsaaved.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -18,7 +21,7 @@ public class LoggingAspect {
 	// @Before("execution(public String com.jfsaaved.model.Circle.getName())")
 	@Before("allGetters()")
 	public void loggingAdvice() {
-		System.out.println("Advice run. Get method called.");
+		//System.out.println("Advice run. Get method called.");
 	}
 	
 	/*
@@ -34,7 +37,7 @@ public class LoggingAspect {
 	
 	@Before("allGetters()")
 	public void secondAdvice() {
-		System.out.println("Second advice ran. Get method called.");
+		//System.out.println("Second advice ran. Get method called.");
 	}
 	
 	
@@ -95,6 +98,46 @@ public class LoggingAspect {
 	@Before("args(name)")
 	public void stringArgumentMethods(String name){
 		System.out.println("A method that takes String arguments has been called: "+name);
+	}
+	
+	@After("args(name)")
+	public void stringArgumentMethodsAfter(String name){
+		System.out.println("After - A method that takes String arguments has been called: "+name);
+	}
+	
+	/*
+	 * 	@AfterReturning("args(name)")
+	 *	public void exceptionAdvice(String name) {
+	 *		System.out.println("After Throw - A method that takes String arguments has been called: "+name);
+	 *	}
+	 */
+	
+	@AfterReturning(pointcut="args(name)", returning="returnString")
+	public void stringArgumentMethodsAfterReturning(String name, String returnString){
+		System.out.println("After Returning - A method that takes String arguments has been called: "+name + ". The output value is: "+ returnString);
+	}
+	
+	@AfterThrowing("args(name)")
+	public void exceptionAdvice(String name) {
+		System.out.println("After Throw - A method that takes String arguments has been called: "+name);
+	}
+	
+	@Around("allGetters()")
+	public Object aroundAdivce(ProceedingJoinPoint proceedingJoinPoint) {
+		
+		Object returnValue = null;
+		
+		try {
+			System.out.println("Around Advice start");
+			returnValue = proceedingJoinPoint.proceed();
+			System.out.println("Around Advice returning");
+		} catch (Throwable e) {
+			System.out.println("Around Advice throw");
+		}
+		
+		System.out.println("Around Advice end");
+		
+		return returnValue;
 	}
 	
 

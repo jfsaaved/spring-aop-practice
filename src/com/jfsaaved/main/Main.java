@@ -16,9 +16,10 @@ public class Main {
 		
 		context = new ClassPathXmlApplicationContext("spring.xml");
 		ShapeService shapeService = context.getBean("shapeService", ShapeService.class);
-		shapeService.getCircle().setName("Dummy Name");
+		shapeService.getCircle().setName("Circle - Dummy Name");
+		//shapeService.getRectangle().setNameAndReturn("Rectangle - Dummy Name");
 		System.out.println(shapeService.getCircle().getName());
-		System.out.println(shapeService.getTriangle().getName());
+		//System.out.println(shapeService.getTriangle().getName());
 	}
 
 }

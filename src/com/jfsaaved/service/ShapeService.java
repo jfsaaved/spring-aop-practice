@@ -1,12 +1,15 @@
 package com.jfsaaved.service;
 
 import com.jfsaaved.model.Circle;
+import com.jfsaaved.model.Rectangle;
 import com.jfsaaved.model.Triangle;
 
 public class ShapeService {
 
 	private Circle circle;
 	private Triangle triangle;
+	private Rectangle rectangle;
+	
 	public Circle getCircle() {
 		return circle;
 	}
@@ -18,6 +21,12 @@ public class ShapeService {
 	}
 	public void setTriangle(Triangle triangle) {
 		this.triangle = triangle;
+	}
+	public Rectangle getRectangle() {
+		return rectangle;
+	}
+	public void setRectangle(Rectangle rectangle) {
+		this.rectangle = rectangle;
 	}
 	
 }

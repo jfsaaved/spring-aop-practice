@@ -21,6 +21,10 @@
 		<property name="name" value="Circle Name"/>
 	</bean>
 	
+	<bean name="rectangle" class="com.jfsaaved.model.Rectangle">
+		
+	</bean>
+	
 	<bean name="loggingAspect" class="com.jfsaaved.aspect.LoggingAspect"/>
 	
 	<bean name="shapeService" class="com.jfsaaved.service.ShapeService" autowire="byName"/>
