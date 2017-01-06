@@ -140,6 +140,10 @@ public class LoggingAspect {
 		return returnValue;
 	}
 	
+	
+	@Pointcut("execution(* com.jfsaaved.service.*Service.*(..)")
+	public void allService() { }
+	
 
 
 }
