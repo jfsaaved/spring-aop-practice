@@ -48,6 +48,15 @@ public class LoggingAspect {
 	 * If you want one particular expression to apply for different advice
 	 */
 	
+	/*
+	 * Added in spring.xml
+	 * 	<aop:config>
+	 *		<aop:aspect id="loggingAspect" ref="loggingAspect">
+	 *	 		<aop:pointcut id="allGetters" expression="execution(* get*())"/>
+	 *		</aop:aspect>
+	 *  </aop:config>
+	 */
+	
 	@Pointcut("execution(public * get*())")
 	public void allGetters() {}
 	
@@ -123,7 +132,8 @@ public class LoggingAspect {
 	}
 	
 	//@Around("allGetters()")
-	@Around("@annotation(com.jfsaaved.aspect.Loggable)")
+	// Added in spring.xml, below line
+	//@Around("@annotation(com.jfsaaved.aspect.Loggable)") 
 	public Object aroundAdivce(ProceedingJoinPoint proceedingJoinPoint) {
 		
 		Object returnValue = null;

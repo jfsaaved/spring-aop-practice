@@ -29,5 +29,11 @@
 	
 	<bean name="shapeService" class="com.jfsaaved.service.ShapeService" autowire="byName"/>
 	
+	<aop:config>
+		<aop:aspect id="loggingAspect" ref="loggingAspect">
+			<aop:pointcut id="allGetters" expression="execution(* get*())"/>
+			<aop:around pointcut-ref="allGetters" method="aroundAdivce"/>
+		</aop:aspect>
+	</aop:config>
 	
 </beans>
