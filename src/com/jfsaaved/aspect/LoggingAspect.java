@@ -122,7 +122,8 @@ public class LoggingAspect {
 		System.out.println("After Throw - A method that takes String arguments has been called: "+name);
 	}
 	
-	@Around("allGetters()")
+	//@Around("allGetters()")
+	@Around("@annotation(com.jfsaaved.aspect.Loggable)")
 	public Object aroundAdivce(ProceedingJoinPoint proceedingJoinPoint) {
 		
 		Object returnValue = null;
@@ -141,8 +142,8 @@ public class LoggingAspect {
 	}
 	
 	
-	@Pointcut("execution(* com.jfsaaved.service.*Service.*(..)")
-	public void allService() { }
+	//@Pointcut("execution(* com.jfsaaved.service.*Service.*(..)")
+	//public void allService() { }
 	
 
 

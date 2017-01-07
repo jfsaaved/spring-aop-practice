@@ -1,5 +1,6 @@
 package com.jfsaaved.service;
 
+import com.jfsaaved.aspect.Loggable;
 import com.jfsaaved.model.Circle;
 import com.jfsaaved.model.Rectangle;
 import com.jfsaaved.model.Triangle;
@@ -10,6 +11,7 @@ public class ShapeService {
 	private Triangle triangle;
 	private Rectangle rectangle;
 	
+	@Loggable
 	public Circle getCircle() {
 		return circle;
 	}
