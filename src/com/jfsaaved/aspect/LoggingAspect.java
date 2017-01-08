@@ -155,6 +155,12 @@ public class LoggingAspect {
 	//@Pointcut("execution(* com.jfsaaved.service.*Service.*(..)")
 	//public void allService() { }
 	
-
+	/*
+	 * Part of Factory Service
+	 */
+	
+	public void newLoggingAdvice() {
+		System.out.println("Logging from the advice");
+	}
 
 }
